@@ -21,7 +21,8 @@ import javax.swing.Timer;
     int currentState = MENU;
     Font titleFont = new Font("Arial", Font.PLAIN, 48);
     Font smolFont = new Font("Arial", Font.PLAIN, 24);
-    Timer frameDraw = new Timer(1000/6, this);
+    Timer frameDraw = new Timer(1000/60, this);
+    Rocketship ship = new Rocketship(250, 700, 50, 50);
    
     public GamePanel(){
     	 frameDraw.start();
@@ -40,7 +41,7 @@ import javax.swing.Timer;
 		
 	}
 	public void updateGameState() {
-		
+		ship.move();
 	}
 	public void updateEndState() {
 		
@@ -60,6 +61,7 @@ import javax.swing.Timer;
 	public void drawGameState(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.LENGTH);
+		ship.draw(g);
 	}
 	public void  drawEndState(Graphics g)  {
 		g.setColor(Color.RED);
@@ -97,22 +99,33 @@ import javax.swing.Timer;
 		    }
 		}  
 		if (arg0.getKeyCode()==KeyEvent.VK_UP) {
-		    System.out.println("UP");
+		    ship.up=true;
 		}
 		if (arg0.getKeyCode()==KeyEvent.VK_DOWN) {
-		    System.out.println("DOWN");
+		    ship.down=true;
 		}
 		if (arg0.getKeyCode()==KeyEvent.VK_LEFT) {
-		    System.out.println("LEFT");
+			ship.left=true;
 		}
 		if (arg0.getKeyCode()==KeyEvent.VK_RIGHT) {
-		    System.out.println("RIGHT");
+		    ship.right=true;
 		}
 	}
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		if (arg0.getKeyCode()==KeyEvent.VK_UP) {
+		    ship.up=false;
+		}
+		if (arg0.getKeyCode()==KeyEvent.VK_DOWN) {
+		    ship.down=false;
+		}
+		if (arg0.getKeyCode()==KeyEvent.VK_LEFT) {
+			ship.left=false;
+		}
+		if (arg0.getKeyCode()==KeyEvent.VK_RIGHT) {
+		    ship.right=false;
+		}
 	}
 	@Override
 	public void keyTyped(KeyEvent arg0) {

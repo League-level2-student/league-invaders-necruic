@@ -11,22 +11,22 @@ public class Rocketship extends GameObject {
 	public Rocketship(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		// TODO Auto-generated constructor stub
-		speed = 7;
+		speed = 5;
 
 	}
 	
 	public void move() {
 		super.update();
-		if (down) {
+		if (down&&y+speed+height<LeagueInvaders.LENGTH) {
 			y += speed;
 		}
-		if (up) {
+		if (up&&y-speed>0) {
 			y -= speed;
 		}
-		if (right) {
+		if (right&&x+speed+width<LeagueInvaders.WIDTH) {
 			x += speed;
 		}
-		if (left) {
+		if (left&&x-speed>0) {
 			x -= speed;
 		}
 	}

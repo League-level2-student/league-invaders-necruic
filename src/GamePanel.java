@@ -98,8 +98,8 @@ import javax.swing.Timer;
 		        currentState++;
 		    }
 		}  
-		if (arg0.getKeyCode()==KeyEvent.VK_UP) {
-		    ship.up=true;
+		if (arg0.getKeyCode()==KeyEvent.VK_UP) {		    
+			ship.up=true;
 		}
 		if (arg0.getKeyCode()==KeyEvent.VK_DOWN) {
 		    ship.down=true;

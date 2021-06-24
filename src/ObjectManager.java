@@ -61,10 +61,11 @@ public class ObjectManager implements ActionListener {
 			if (projectile.y <= 0) {
 
 				projectile.isActive = false;
-
+					
 			}
+			
 		}
-
+		
 		// Game is over is false if the rocket ship is inactive. Otherwise, checks for
 		// collisions and purges objects from the frame.
 		//if (rocketShip.isActive != false) {
@@ -85,6 +86,7 @@ public class ObjectManager implements ActionListener {
 		for (Alien alien : aliens) {
 
 			alien.draw(g);
+			
 
 		}
 

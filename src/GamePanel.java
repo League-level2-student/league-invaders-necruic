@@ -20,6 +20,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public static BufferedImage image;
 	public static boolean needImage = true;
 	public static boolean gotImage = false;	
+
 	
 	// Declaring time variable
 	Timer frameDraw;
@@ -66,6 +67,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 
 	}
+	ObjectManager objectmanager = new ObjectManager(rocketShip);
 
 	// Depending on the current state, either the program calls drawMenuState,
 	// or drawGameState, or drawEndState.
@@ -275,6 +277,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			
 			// A projectile is created when the space bar is pressed
 			if( key == KeyEvent.VK_SPACE) {
+				
 				
 				objectManager.addProjectile(rocketShip.getProjectile());
 			}
